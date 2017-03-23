@@ -18,3 +18,27 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rdirichlet_cpp
+NumericVector rdirichlet_cpp(NumericVector alpha, int seed);
+RcppExport SEXP slwu89package_rdirichlet_cpp(SEXP alphaSEXP, SEXP seedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< int >::type seed(seedSEXP);
+    rcpp_result_gen = Rcpp::wrap(rdirichlet_cpp(alpha, seed));
+    return rcpp_result_gen;
+END_RCPP
+}
+// shuf1
+IntegerVector shuf1(int seed, int size);
+RcppExport SEXP slwu89package_shuf1(SEXP seedSEXP, SEXP sizeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type seed(seedSEXP);
+    Rcpp::traits::input_parameter< int >::type size(sizeSEXP);
+    rcpp_result_gen = Rcpp::wrap(shuf1(seed, size));
+    return rcpp_result_gen;
+END_RCPP
+}
