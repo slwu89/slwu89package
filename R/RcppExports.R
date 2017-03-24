@@ -5,11 +5,3 @@ gslShuffle <- function(seed, size) {
     .Call('slwu89package_gslShuffle', PACKAGE = 'slwu89package', seed, size)
 }
 
-rdirichlet_cpp <- function(alpha, seed) {
-    .Call('slwu89package_rdirichlet_cpp', PACKAGE = 'slwu89package', alpha, seed)
-}
-
-shuf1 <- function(seed, size) {
-    .Call('slwu89package_shuf1', PACKAGE = 'slwu89package', seed, size)
-}
-

@@ -9,6 +9,7 @@ using namespace Rcpp;
  * gslShuffle
  *
 */
+
 // [[Rcpp::export]]
 IntegerVector gslShuffle(int seed, int size){
 
