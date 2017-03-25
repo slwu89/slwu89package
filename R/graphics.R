@@ -6,7 +6,7 @@
 # ...: additional parameters to be passed to persp()
 # xlg: log x-axis
 # ylg: log y-axis
-perspCol <- function(x,y,z,color,...,xlg=TRUE,ylg=TRUE)
+perspCol <- function(x,y,z,color,xlg=TRUE,ylg=TRUE,ticktype="detailed",border=NA,...)
 {
   colnames(z) <- y
   rownames(z) <- x
@@ -24,6 +24,8 @@ perspCol <- function(x,y,z,color,...,xlg=TRUE,ylg=TRUE)
     as.numeric(colnames(z)),
     as.matrix(z),
     col=color[facetcol],
+    ticktype=ticktype,
+    border=border,
     ...
   )
 }
