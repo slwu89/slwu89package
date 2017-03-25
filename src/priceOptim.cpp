@@ -11,7 +11,7 @@ using namespace Rcpp;
 */
 
 // [[Rcpp::export]]
-IntegerVector gslShuffle(int seed, int size){
+IntegerVector placeholder(int seed, int size){
 
   gsl_rng *r = gsl_rng_alloc(gsl_rng_mt19937);
   gsl_rng_set(r,seed);

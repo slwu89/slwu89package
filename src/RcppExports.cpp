@@ -6,6 +6,44 @@
 
 using namespace Rcpp;
 
+// placeholder
+IntegerVector placeholder(int seed, int size);
+RcppExport SEXP slwu89package_placeholder(SEXP seedSEXP, SEXP sizeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type seed(seedSEXP);
+    Rcpp::traits::input_parameter< int >::type size(sizeSEXP);
+    rcpp_result_gen = Rcpp::wrap(placeholder(seed, size));
+    return rcpp_result_gen;
+END_RCPP
+}
+// gslChoose
+IntegerVector gslChoose(int seed, unsigned int k, unsigned int n);
+RcppExport SEXP slwu89package_gslChoose(SEXP seedSEXP, SEXP kSEXP, SEXP nSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type seed(seedSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type k(kSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type n(nSEXP);
+    rcpp_result_gen = Rcpp::wrap(gslChoose(seed, k, n));
+    return rcpp_result_gen;
+END_RCPP
+}
+// gslSample
+IntegerVector gslSample(int seed, unsigned int k, unsigned int n);
+RcppExport SEXP slwu89package_gslSample(SEXP seedSEXP, SEXP kSEXP, SEXP nSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type seed(seedSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type k(kSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type n(nSEXP);
+    rcpp_result_gen = Rcpp::wrap(gslSample(seed, k, n));
+    return rcpp_result_gen;
+END_RCPP
+}
 // gslShuffle
 IntegerVector gslShuffle(int seed, int size);
 RcppExport SEXP slwu89package_gslShuffle(SEXP seedSEXP, SEXP sizeSEXP) {
