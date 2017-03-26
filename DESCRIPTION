@@ -7,6 +7,6 @@ Maintainer: Sean Wu <slwu89@berkeley.edu>
 Description: useful things and half-baked ideas
 License: MIT License
 Encoding: UTF-8
-Imports: Rcpp
+Imports: Rcpp, parallel
 LinkingTo: Rcpp, RcppGSL
 LazyData: true

@@ -6,8 +6,7 @@
 # ...: additional parameters to be passed to persp()
 # xlg: log x-axis
 # ylg: log y-axis
-perspCol <- function(x,y,z,color,xlg=TRUE,ylg=TRUE,ticktype="detailed",border=NA,...)
-{
+perspCol <- function(x,y,z,color,xlg=TRUE,ylg=TRUE,ticktype="detailed",border=NA,...){
   colnames(z) <- y
   rownames(z) <- x
 
@@ -35,10 +34,19 @@ perspCol <- function(x,y,z,color,xlg=TRUE,ylg=TRUE,ticktype="detailed",border=NA
 # ylim: y-axis bounds
 # resolution: resolution of lattice
 # func: function to apply to xy lattice
-makeSurface <- function(xlim, ylim, resolution, func){
+makeSurface <- function(xlim, ylim, resolution, func, par = FALSE){
   xx = seq(xlim[1],xlim[2],length=resolution)
   yy = seq(ylim[1],ylim[2],length=resolution)
-  zz = matrix(apply(expand.grid(xx,yy),1,func),nrow=length(xx))
+  if(par){
+    lattice = expand.grid(xx,yy)
+    cl = parallel::makeForkCluster(nnodes = parallel::detectCores()-2L)
+    zz = parallel::parApply(cl = cl,X = lattice,MARGIN = 1,FUN = func)
+    zz = matrix(data = zz,nrow = length(xx))
+    parallel::stopCluster(cl)
+    rm(cl)
+  } else {
+    zz = matrix(apply(expand.grid(xx,yy),1,func),nrow=length(xx))
+  }
   return(list(
     xx=xx,
     yy=yy,
